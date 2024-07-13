@@ -1,10 +1,16 @@
+import dotenv from 'dotenv';
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
 import { promises as fs } from 'fs';
+import MistralClient from "@mistralai/mistralai";
 
-async function splitDocument() {
+dotenv.config();
+
+const client = new MistralClient(process.env.MISTRAL_API_KEY);
+
+async function splitDocument(path) {
 
     // Read the file content
-    const text = await fs.readFile('handbook.txt', 'utf-8');
+    const text = await fs.readFile(path, 'utf-8');
     console.log(text);  // Log the content or process it as needed
     const splitter = new RecursiveCharacterTextSplitter({
         chunkSize: 250, // Maximum chunk size by number of characters
@@ -12,17 +18,24 @@ async function splitDocument() {
     });
 
     const output = await splitter.createDocuments([text]);
-    console.log(output); // Log the output
+    const textArr = output.map(chunk => chunk.pageContent);
+    return textArr;
 
 }
+const handbookChunks = await splitDocument('handbook.txt');
 
-splitDocument();
+async function createEmbeddings(chunks) {
+    const embeddings = await client.embeddings({
+        model: 'mistral-embed',
+        input: chunks
+    });
+    const data = chunks.map((chunk, i) => {
+        return {
+            content: chunk,
+            embedding: embeddings.data[i].embedding
+        }
+    });
+    return data;
+}
 
-
-// async function splitDocument() {
-//     const response = await fetch('handbook.txt');
-//     const text = await response.text();
-//     console.log(text);
-// }
-
-// splitDocument();
+console.log(await createEmbeddings(handbookChunks));
