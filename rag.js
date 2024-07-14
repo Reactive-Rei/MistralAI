@@ -15,11 +15,11 @@ const embedding = await createEmbedding(input);
 
 // 3. Retrieving similar embeddings / text chunks (aka "context")
 const context = await retrieveMatches(embedding);
-console.log(context);
+// console.log(context);
 // 4. Combining the input and the context in a prompt 
 // and using the chat API to generate a response 
 const response = await generateChatResponse(context, input);
-
+console.log(response);
 
 async function createEmbedding(input) {
   const embeddingResponse = await mistralClient.embeddings({
@@ -40,5 +40,12 @@ async function retrieveMatches(embedding) {
 
 
 async function generateChatResponse(context, query) {
-
+    const response = await mistralClient.chat({
+        model: 'mistral-large-latest',
+        messages: [{
+            role: 'user',
+            content: `Handbook context: ${context} - Question: ${query}`
+        }]
+    });
+    return response.choices[0].message.content;
 }
