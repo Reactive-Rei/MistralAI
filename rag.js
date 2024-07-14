@@ -8,7 +8,9 @@ const mistralClient = new MistralClient(process.env.MISTRAL_API_KEY);
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_API_KEY);
 
 // 1. Getting the user input
-const input = "December 25th is on a Sunday, do I get any extra time off to account for that?";
+// const input = "December 25th is on a Sunday, do I get any extra time off to account for that?";
+
+const input = "Tell me about economic benefits and insurance";
 
 // 2. Creating an embedding of the input
 const embedding = await createEmbedding(input);
