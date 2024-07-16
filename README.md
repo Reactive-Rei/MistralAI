@@ -20,6 +20,9 @@ This project is a hands-on tutorial and implementation guide for integrating Mis
 2. API Basics & JS SDK
 3. Various Mistral Models, including:
    - Embedding Model: Working with vector databases
+4. Vector Databases
+5. Retrieval-augmented Generation
+6. AI agents with function calling
 
 ## Important Packages
 
@@ -27,4 +30,5 @@ Install the necessary packages:
 
 ```bash
 npm install @mistralai/mistralai axios dotenv @supabase/supabase-js
+npm install langchain
 ```
