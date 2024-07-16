@@ -84,16 +84,16 @@ Node.js is a runtime environment for executing JavaScript code outside a web bro
 
 ### Key Features:
 
-    - Event-driven: Uses events to handle asynchronous operations.
-    - Non-blocking I/O: Efficient handling of multiple connections.
-    - Single-threaded: Uses a single thread to manage connections via event looping.
+- Event-driven: Uses events to handle asynchronous operations.
+- Non-blocking I/O: Efficient handling of multiple connections.
+- Single-threaded: Uses a single thread to manage connections via event looping.
 
 ### Common Uses:
 
-    - Web servers
-    - APIs
-    - Real-time applications (e.g., chat apps)
-    - Command-line tools
+- Web servers
+- APIs
+- Real-time applications (e.g., chat apps)
+- Command-line tools
 
 For more information, visit the [official Node.js website](https://nodejs.org/en).
 
@@ -103,25 +103,25 @@ Embeddings are crucial in machine learning for translating data into numerical f
 
 ### Key Features of Vector Databases:
 
-    - High-Dimensional Indexing: Efficient indexing for fast retrieval.
-    - Similarity Search: Finds vectors similar to a query vector.
-    - Scalability: Handles large volumes of data.
+- High-Dimensional Indexing: Efficient indexing for fast retrieval.
+- Similarity Search: Finds vectors similar to a query vector.
+- Scalability: Handles large volumes of data.
 
 ### Popular Vector Databases:
 
-    - Pinecone: Optimized for high-dimensional vector search.
-    - Chroma
-    - Supabase: Open-source solution.
+- Pinecone: Optimized for high-dimensional vector search.
+- Chroma
+- Supabase: Open-source solution.
 
 We will use Supabase to manage our vector database.
 
 ### Running RAG (Retrieval-augmented Generation)
 
-    - Write code to query a vector/embedding and generate responses using Mistral AI models.
+- Write code to query a vector/embedding and generate responses using Mistral AI models.
 
 ### Creating AI Agents
 
-    - Implement function calling to enable AI agents to interact with the world on the user's behalf.
+- Implement function calling to enable AI agents to interact with the world on the user's behalf.
 
 ## Conclusion
 
