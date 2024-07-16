@@ -30,5 +30,8 @@ Install the necessary packages:
 
 ```bash
 npm install @mistralai/mistralai axios dotenv @supabase/supabase-js
+```
+
+```bash
 npm install langchain
 ```
